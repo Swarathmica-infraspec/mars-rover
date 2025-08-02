@@ -61,3 +61,14 @@ func TestRoverCannotHavexLessThan0(t *testing.T) {
 	}
 
 }
+
+func TestRoverCannotHaveyLessThan0(t *testing.T) {
+	plateau := Plateau{x: 5, y: 5}
+
+	_, err := NewRover(1, -2, North, plateau)
+
+	if err == nil {
+		t.Errorf("Rover Cannot have y<0")
+	}
+
+}

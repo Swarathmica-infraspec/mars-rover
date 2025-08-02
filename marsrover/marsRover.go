@@ -46,8 +46,8 @@ func NewPlateau(x, y int) (*Plateau, error) {
 }
 
 func NewRover(x, y int, dir Direction, plateau Plateau) (*Rover, error) {
-	if x < 0 {
-		return nil, errors.New("Rover cannot have starting position with x<0")
+	if x < 0 || y < 0 {
+		return nil, errors.New("Rover cannot have starting position with negative coordinates")
 	}
 	return &Rover{x: x, y: y, dir: dir, plateau: plateau}, nil
 }
