@@ -51,3 +51,7 @@ func NewRover(x, y int, dir Direction, plateau Plateau) (*Rover, error) {
 	}
 	return &Rover{x: x, y: y, dir: dir, plateau: plateau}, nil
 }
+
+func (r *Rover) TurnLeft() {
+	r.dir = (r.dir + 3) % 4
+}

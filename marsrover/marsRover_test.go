@@ -72,3 +72,14 @@ func TestRoverCannotHaveyLessThan0(t *testing.T) {
 	}
 
 }
+
+func TestRoverTurnsLeft(t *testing.T) {
+	plateau, _ := NewPlateau(5, 5)
+	rover, _ := NewRover(1, 2, North, *plateau)
+
+	rover.TurnLeft()
+	if rover.dir != West {
+		t.Errorf("Expected direction West after left turn, got %s", rover.dir)
+	}
+
+}
