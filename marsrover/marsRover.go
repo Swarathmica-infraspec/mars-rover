@@ -6,6 +6,12 @@ type Plateau struct {
 	x, y int
 }
 
+type Rover struct {
+	x, y    int
+	dir     Direction
+	plateau Plateau
+}
+
 type Direction int
 
 const (
@@ -37,4 +43,9 @@ func NewPlateau(x, y int) (*Plateau, error) {
 		return nil, errors.New("Cannot create plateau with x<1")
 	}
 	return &Plateau{x: x, y: y}, nil
+}
+
+func NewRover(x, y int, dir Direction, plateau Plateau) *Rover {
+
+	return &Rover{x: x, y: y, dir: dir, plateau: plateau}
 }
