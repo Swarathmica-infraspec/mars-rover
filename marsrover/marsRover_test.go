@@ -28,3 +28,12 @@ func TestCannotCreatePlateauWithyLessThan1(t *testing.T) {
 	}
 
 }
+
+func TestDirectionString(t *testing.T) {
+	if North.String() != "N" {
+		t.Errorf("Expected 'N', got '%s'", North.String())
+	}
+	if West.String() != "W" {
+		t.Errorf("Expected 'W', got '%s'", West.String())
+	}
+}
