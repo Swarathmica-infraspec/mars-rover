@@ -41,7 +41,7 @@ func TestDirectionString(t *testing.T) {
 func TestCreateRover(t *testing.T) {
 	plateau := Plateau{x: 5, y: 5}
 
-	rover := NewRover(1, 2, North, plateau)
+	rover, _ := NewRover(1, 2, North, plateau)
 
 	if rover.x != 1 || rover.y != 2 {
 		t.Errorf("Expected position (1, 2), got (%d, %d)", rover.x, rover.y)
@@ -49,4 +49,15 @@ func TestCreateRover(t *testing.T) {
 	if rover.dir != North {
 		t.Errorf("Expected direction North, got %s", rover.dir.String())
 	}
+}
+
+func TestRoverCannotHavexLessThan0(t *testing.T) {
+	plateau := Plateau{x: 5, y: 5}
+
+	_, err := NewRover(-1, 2, North, plateau)
+
+	if err == nil {
+		t.Errorf("Rover Cannot have x<0")
+	}
+
 }

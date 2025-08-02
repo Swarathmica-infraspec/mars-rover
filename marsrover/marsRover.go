@@ -45,7 +45,9 @@ func NewPlateau(x, y int) (*Plateau, error) {
 	return &Plateau{x: x, y: y}, nil
 }
 
-func NewRover(x, y int, dir Direction, plateau Plateau) *Rover {
-
-	return &Rover{x: x, y: y, dir: dir, plateau: plateau}
+func NewRover(x, y int, dir Direction, plateau Plateau) (*Rover, error) {
+	if x < 0 {
+		return nil, errors.New("Rover cannot have starting position with x<0")
+	}
+	return &Rover{x: x, y: y, dir: dir, plateau: plateau}, nil
 }
