@@ -19,3 +19,12 @@ func TestCannotCreatePlateauWithxLessThan1(t *testing.T) {
 	}
 
 }
+
+func TestCannotCreatePlateauWithyLessThan1(t *testing.T) {
+	x, y := 5, -5
+	_, err := NewPlateau(x, y)
+	if err == nil {
+		t.Errorf("Cannot create Plateau With negative y")
+	}
+
+}
