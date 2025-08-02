@@ -94,3 +94,14 @@ func TestRoverTurnsRight(t *testing.T) {
 	}
 
 }
+
+func TestRoverMove(t *testing.T) {
+	plateau, _ := NewPlateau(5, 5)
+	rover, _ := NewRover(1, 2, North, *plateau)
+
+	rover.Move()
+
+	if rover.x != 1 || rover.y != 3 {
+		t.Errorf("Expected position (1, 3), got (%d, %d)", rover.x, rover.y)
+	}
+}

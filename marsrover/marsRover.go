@@ -59,3 +59,22 @@ func (r *Rover) TurnLeft() {
 func (r *Rover) TurnRight() {
 	r.dir = (r.dir + 1) % 4
 }
+
+func (r *Rover) Move() {
+	newX, newY := r.x, r.y
+
+	switch r.dir {
+	case North:
+		newY++
+	case East:
+		newX++
+	case South:
+		newY--
+	case West:
+		newX--
+	}
+
+	if newX >= 0 && newY >= 0 && newX <= r.plateau.x && newY <= r.plateau.y {
+		r.x, r.y = newX, newY
+	}
+}
