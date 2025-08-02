@@ -55,3 +55,7 @@ func NewRover(x, y int, dir Direction, plateau Plateau) (*Rover, error) {
 func (r *Rover) TurnLeft() {
 	r.dir = (r.dir + 3) % 4
 }
+
+func (r *Rover) TurnRight() {
+	r.dir = (r.dir + 1) % 4
+}
