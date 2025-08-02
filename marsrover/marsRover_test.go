@@ -105,3 +105,17 @@ func TestRoverMove(t *testing.T) {
 		t.Errorf("Expected position (1, 3), got (%d, %d)", rover.x, rover.y)
 	}
 }
+
+func TestExecute(t *testing.T) {
+	plateau, _ := NewPlateau(5, 5)
+	rover, _ := NewRover(1, 2, North, *plateau)
+
+	err := rover.Execute("LMLMLMLMM")
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+
+	if rover.x != 1 || rover.y != 3 || rover.dir != North {
+		t.Errorf("Expected position (1, 3, N), got (%d, %d, %s)", rover.x, rover.y, rover.dir)
+	}
+}

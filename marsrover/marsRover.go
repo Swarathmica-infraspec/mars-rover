@@ -78,3 +78,19 @@ func (r *Rover) Move() {
 		r.x, r.y = newX, newY
 	}
 }
+
+func (r *Rover) Execute(commands string) error {
+	for _, c := range commands {
+		switch c {
+		case 'L':
+			r.TurnLeft()
+		case 'R':
+			r.TurnRight()
+		case 'M':
+			r.Move()
+		default:
+			return errors.New("invalid command")
+		}
+	}
+	return nil
+}
