@@ -8,7 +8,7 @@ type Plateau struct {
 
 type Rover struct {
 	X, Y    int
-	dir     Direction
+	Dir     Direction
 	plateau Plateau
 }
 
@@ -49,21 +49,21 @@ func NewRover(x, y int, dir Direction, plateau Plateau) (*Rover, error) {
 	if x < 0 || y < 0 {
 		return nil, errors.New("Rover cannot have starting position with negative coordinates")
 	}
-	return &Rover{X: x, Y: y, dir: dir, plateau: plateau}, nil
+	return &Rover{X: x, Y: y, Dir: dir, plateau: plateau}, nil
 }
 
 func (r *Rover) TurnLeft() {
-	r.dir = (r.dir + 3) % 4
+	r.Dir = (r.Dir + 3) % 4
 }
 
 func (r *Rover) TurnRight() {
-	r.dir = (r.dir + 1) % 4
+	r.Dir = (r.Dir + 1) % 4
 }
 
 func (r *Rover) Move() {
 	newX, newY := r.X, r.Y
 
-	switch r.dir {
+	switch r.Dir {
 	case North:
 		newY++
 	case East:
