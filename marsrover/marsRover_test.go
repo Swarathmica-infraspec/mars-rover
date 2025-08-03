@@ -43,8 +43,8 @@ func TestCreateRover(t *testing.T) {
 
 	rover, _ := NewRover(1, 2, North, plateau)
 
-	if rover.x != 1 || rover.y != 2 {
-		t.Errorf("Expected position (1, 2), got (%d, %d)", rover.x, rover.y)
+	if rover.X != 1 || rover.y != 2 {
+		t.Errorf("Expected position (1, 2), got (%d, %d)", rover.X, rover.y)
 	}
 	if rover.dir != North {
 		t.Errorf("Expected direction North, got %s", rover.dir.String())
@@ -101,8 +101,8 @@ func TestRoverMove(t *testing.T) {
 
 	rover.Move()
 
-	if rover.x != 1 || rover.y != 3 {
-		t.Errorf("Expected position (1, 3), got (%d, %d)", rover.x, rover.y)
+	if rover.X != 1 || rover.y != 3 {
+		t.Errorf("Expected position (1, 3), got (%d, %d)", rover.X, rover.y)
 	}
 }
 
@@ -115,7 +115,7 @@ func TestExecute(t *testing.T) {
 		t.Fatalf("Unexpected error: %v", err)
 	}
 
-	if rover.x != 1 || rover.y != 3 || rover.dir != North {
-		t.Errorf("Expected position (1, 3, N), got (%d, %d, %s)", rover.x, rover.y, rover.dir)
+	if rover.X != 1 || rover.y != 3 || rover.dir != North {
+		t.Errorf("Expected position (1, 3, N), got (%d, %d, %s)", rover.X, rover.y, rover.dir)
 	}
 }
