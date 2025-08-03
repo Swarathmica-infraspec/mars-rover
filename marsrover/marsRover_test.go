@@ -6,8 +6,8 @@ func TestNewPlateau(t *testing.T) {
 	x, y := 5, 5
 	plateau, _ := NewPlateau(x, y)
 
-	if plateau.x != 5 || plateau.y != 5 {
-		t.Errorf("Expected (5, 5), got (%d, %d)", plateau.x, plateau.y)
+	if plateau.X != 5 || plateau.y != 5 {
+		t.Errorf("Expected (5, 5), got (%d, %d)", plateau.X, plateau.y)
 	}
 }
 
@@ -39,7 +39,7 @@ func TestDirectionString(t *testing.T) {
 }
 
 func TestCreateRover(t *testing.T) {
-	plateau := Plateau{x: 5, y: 5}
+	plateau := Plateau{X: 5, y: 5}
 
 	rover, _ := NewRover(1, 2, North, plateau)
 
@@ -52,7 +52,7 @@ func TestCreateRover(t *testing.T) {
 }
 
 func TestRoverCannotHavexLessThan0(t *testing.T) {
-	plateau := Plateau{x: 5, y: 5}
+	plateau := Plateau{X: 5, y: 5}
 
 	_, err := NewRover(-1, 2, North, plateau)
 
@@ -63,7 +63,7 @@ func TestRoverCannotHavexLessThan0(t *testing.T) {
 }
 
 func TestRoverCannotHaveyLessThan0(t *testing.T) {
-	plateau := Plateau{x: 5, y: 5}
+	plateau := Plateau{X: 5, y: 5}
 
 	_, err := NewRover(1, -2, North, plateau)
 
