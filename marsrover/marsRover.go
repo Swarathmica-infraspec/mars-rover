@@ -3,7 +3,7 @@ package marsrover
 import "errors"
 
 type Plateau struct {
-	X, y int
+	X, Y int
 }
 
 type Rover struct {
@@ -42,7 +42,7 @@ func NewPlateau(x, y int) (*Plateau, error) {
 	if x < 1 || y < 1 {
 		return nil, errors.New("Cannot create plateau with x<1 or y<1")
 	}
-	return &Plateau{X: x, y: y}, nil
+	return &Plateau{X: x, Y: y}, nil
 }
 
 func NewRover(x, y int, dir Direction, plateau Plateau) (*Rover, error) {
@@ -74,7 +74,7 @@ func (r *Rover) Move() {
 		newX--
 	}
 
-	if newX >= 0 && newY >= 0 && newX <= r.plateau.X && newY <= r.plateau.y {
+	if newX >= 0 && newY >= 0 && newX <= r.plateau.X && newY <= r.plateau.Y {
 		r.x, r.y = newX, newY
 	}
 }
